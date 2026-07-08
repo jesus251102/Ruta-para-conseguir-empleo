@@ -1,3 +1,3 @@
-# Proyecto de práctica Git - version final
+# Práctica de Git - Gabriel
 
 # Aprendiendo Git paso a paso
