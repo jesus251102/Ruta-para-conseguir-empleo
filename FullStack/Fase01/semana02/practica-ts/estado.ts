@@ -14,8 +14,10 @@
 
 function obtenerColorEstado(
   estado: "pendiente" | "en_proceso" | "listo",
-): string {
-  switch (estado) {
+): string
+{
+  switch (estado)
+  {
     case "pendiente":
       return "Amarillo";
     case "en_proceso":

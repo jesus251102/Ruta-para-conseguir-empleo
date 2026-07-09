@@ -16,13 +16,16 @@
 // Pruébala DOS veces:
 // gestionarTarea(5)     ← debe completar los 3 pasos sin error
 // gestionarTarea(9999)  ← debe fallar en el paso 1 (GET) y NO seguir a los pasos 2 y 3
-async function gestionarTarea(id) {
-    try {
+async function gestionarTarea(id)
+{
+    try
+    {
 
         // PARA OBTENER DATOS
         const obtenerDatos = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
 
-        if (!obtenerDatos.ok) {
+        if (!obtenerDatos.ok)
+        {
             throw new Error(`Error: ${obtenerDatos.status}`)
         }
 
@@ -40,7 +43,8 @@ async function gestionarTarea(id) {
             })
         })
 
-        if (!putDatos.ok) {
+        if (!putDatos.ok)
+        {
             throw new Error(`Error: ${putDatos.status}`)
         }
 
@@ -51,13 +55,15 @@ async function gestionarTarea(id) {
             method: "DELETE"
         })
 
-        if (!deleteDatos.ok) {
+        if (!deleteDatos.ok)
+        {
             throw new Error(`Error: ${deleteDatos.status}`)
         }
 
         console.log(`Tarea eliminada correctamente con id: ${id}`)
 
-    } catch (error) {
+    } catch (error)
+    {
         console.log(`Error: ${error.message}`)
     }
 }

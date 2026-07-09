@@ -11,28 +11,35 @@
 // obtenerConCancelacion(1, 5)     ← 5ms es tan rápido que debería cancelar
 // obtenerConCancelacion(1, 5000)  ← 5 segundos es tan lento que el fetch debería ganar
 
-async function obtenerConCancelacion(id, msParaCancelar) {
+async function obtenerConCancelacion(id, msParaCancelar)
+{
     const controller = new AbortController();
-    setTimeout(() => {
+    setTimeout(() =>
+    {
         controller.abort()
     }, msParaCancelar);
 
-    try {
+    try
+    {
         const getDatos = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
             signal: controller.signal
         });
 
-        if (!getDatos.ok) {
+        if (!getDatos.ok)
+        {
             throw new Error(`Error: ${getDatos.status}`)
         }
 
         const datos = await getDatos.json()
         console.log(`Titulo de la tarea: ${datos.title}`)
 
-    } catch (error) {
-        if (error.name === "AbortError") {
+    } catch (error)
+    {
+        if (error.name === "AbortError")
+        {
             console.log("Cancelado a tiempo")
-        } else {
+        } else
+        {
             console.log(error.message)
         }
     }
